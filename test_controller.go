@@ -19,7 +19,7 @@ import (
 
 var tpl *template.Template
 
-const PASSWORD = "neo-bunkai"
+const PASSWORD = "password"
 
 type User struct {
 	Id int64
@@ -277,7 +277,7 @@ func checkApplyInput(applyContent *ApplyContent) bool{
 		result = false
 		applyContent.PhoneCheck = "err"
 	}
-	//メールアドレスのみ、ネオメイトアドレスになっていることをチェック
+	//メールアドレスのみチェック
 	if applyContent.Email == "" || !checkMailAddress(applyContent.Email){
 		result = false
 		applyContent.EmailCheck = "err"
