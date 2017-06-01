@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="jp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>申し込み内容確認</title>
+    <meta name="author" content="Jake Rocheleau">
+    <link rel="shortcut icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+    <link rel="icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" media="all" href="resource/styles.css">
+    <link rel="stylesheet" type="text/css" media="all" href="resource/switchery.min.css">
+    <script type="text/javascript" src="resource/switchery.min.js"></script>
+    <script type="text/javascript">
+        function correct(){
+            document.getElementById('form').action="apply.html";
+        }
+
+        function confirm(){
+            document.getElementById('form').action="result.html";
+        }
+    </script>
+</head>
+
+<body>
+<div id="wrapper">
+
+    <h1>申し込み内容確認</h1>
+
+    <form id="form" method="post" action="">
+
+    <div class="col-1">
+        <label>
+            名前　　　：{{.Name}}
+        </label>
+    </div>
+    <div class="col-1">
+        <label>
+            所属部署　：{{.Department}}
+        </label>
+    </div>
+    <div class="col-1">
+        <label>
+            電話番号　：{{.Phone}}
+        </label>
+    </div>
+    <div class="col-1">
+        <label>
+            メール　　：{{.Email}}
+        </label>
+    </div>
+    <div class="col-1">
+        <label>
+                第1希望 　：{{.First}}
+        </label>
+    </div>
+        <div class="col-1">
+            <label>
+                第2希望　：{{.Second}}
+            </label>
+        </div>
+        <div class="col-1">
+            <label>
+                第3希望　：{{.Third}}
+            </label>
+        </div>
+    <div class="col-1">
+        <label>
+            パスワード  <script>if({{.PasswordCheck}}){document.write("<font color=#ff0000><b>パスワードが違います</b></font>");}</script>
+            <input type="password" placeholder="お知らせしたパスワードを入力してください" id="password" name="password">
+        </label>
+    </div>
+    <input type="hidden" name="name" value="{{.Name}}"/>
+    <input type="hidden" name="department" value="{{.Department}}"/>
+    <input type="hidden" name="phone" value="{{.Phone}}"/>
+    <input type="hidden" name="email" value="{{.Email}}"/>
+    <input type="hidden" name="first" value="{{.First}}"/>
+        <input type="hidden" name="second" value="{{.Second}}"/>
+        <input type="hidden" name="third" value="{{.Third}}"/>
+    <input type="hidden" name="formcheck" value="true"/>
+    <div class="col-2">
+        <label>
+            <button type="submit" class="submitbtn" onclick="confirm();" >これで申し込む</button>
+        </label>
+    </div>
+    <div class="col-2">
+        <label>
+            <button type="submit" class="submitbtn" onclick="correct();" >修正する</button>
+        </label>
+    </div>
+</form>
+
+</body>
+</html>

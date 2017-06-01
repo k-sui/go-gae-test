@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="jp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>申し込み結果</title>
+    <meta name="author" content="Jake Rocheleau">
+    <link rel="shortcut icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+    <link rel="icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" media="all" href="resource/styles.css">
+    <link rel="stylesheet" type="text/css" media="all" href="resource/switchery.min.css">
+    <script type="text/javascript" src="resource/switchery.min.js"></script>
+
+</head>
+
+<body>
+<div id="wrapper">
+    <h1>申し込み完了</h1>
+    <h2>以下の内容で申し込みを受け付けました</h2>
+    <form id="form" method="post" action="">
+
+        <div class="col-1">
+            <label>
+                名前　　　：{{.Name}}
+            </label>
+        </div>
+        <div class="col-1">
+            <label>
+                所属部署　：{{.Department}}
+            </label>
+        </div>
+        <div class="col-1">
+            <label>
+                電話番号　：{{.Phone}}
+            </label>
+        </div>
+        <div class="col-1">
+            <label>
+                メール　　：{{.Email}}
+            </label>
+        </div>
+        <div class="col-1">
+            <label>
+                第1希望 　：{{.First}}
+            </label>
+        </div>
+        <div class="col-1">
+            <label>
+                第2希望　：{{.Second}}
+            </label>
+        </div>
+        <div class="col-1">
+            <label>
+                第3希望　：{{.Third}}
+            </label>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

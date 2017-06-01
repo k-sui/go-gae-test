@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>Horizontal Application Form - Template Monster Demo</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+  <link rel="icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="resource/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="resource/switchery.min.css">
+  <script type="text/javascript" src="resource/switchery.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+  
+  <h1>抽選申し込み</h1>
+  
+  <form method="post" action="confirm.html">
+  <div class="col-2">
+    <label>
+      <script>if({{.NameCheck}}){document.write("<font color=#ff0000><b>");}</script>名前<script>if({{.NameCheck}}){document.write("</b></font>");}</script>
+      <input placeholder="山田 太郎" name="name" tabindex="1" value="{{.Name}}">
+    </label>
+  </div>
+  <div class="col-2">
+    <label>
+      <script>if({{.DepartmentCheck}}){document.write("<font color=#ff0000><b>");}</script>所属部署<script>if({{.DepartmentCheck}}){document.write("</b></font>");}</script>
+      <input placeholder="" id="department" name="department" tabindex="2" value="{{.Department}}">
+    </label>
+  </div>
+  
+  <div class="col-2">
+    <label>
+      <script>if({{.PhoneCheck}}){document.write("<font color=#ff0000><b>");}</script>電話番号<script>if({{.PhoneCheck}}){document.write("</b></font>");}</script>
+      <input placeholder="01-2345-6789" id="phone" name="phone" tabindex="3" value="{{.Phone}}">
+    </label>
+  </div>
+  <div class="col-2">
+    <label>
+      <script>if({{.EmailCheck}}){document.write("<font color=#ff0000><b>");}</script>メールアドレス<script>if({{.EmailCheck}}){document.write("</b></font>");}</script>
+      <input placeholder="tarou.yamada@sample.com" id="email" name="email" tabindex="4" value="{{.Email}}">
+    </label>
+  </div>
+<!--  <div class="col-3">
+    <label>
+      Availability
+      <select tabindex="5">
+        <option>5-15 hrs per week</option>
+        <option>15-30 hrs per week</option>
+        <option>30-40 hrs per week</option>
+      </select>
+    </label>
+  </div>-->
+
+    <div class="col-3">
+      <label>
+        商品(第1希望)
+        <select id="first" name="first" tabindex="5">
+          <option ></option>
+          <option >商品1</option>
+          <option >商品2</option>
+          <option >商品3</option>
+        </select>
+      </label>
+    </div>
+    <div class="col-3">
+      <label>
+        商品(第2希望)
+        <select id="second" name="second" tabindex="6" >
+          <option ></option>
+          <option >商品1</option>
+          <option >商品2</option>
+          <option >商品3</option>
+        </select>
+      </label>
+    </div>
+    <div class="col-3">
+      <label>
+        商品(第3希望)
+        <select id="third" name="third" tabindex="7" >
+          <option ></option>
+          <option >商品1</option>
+          <option >商品2</option>
+          <option >商品3</option>
+        </select>
+      </label>
+    </div>
+
+    <input type="hidden" id="formcheck" name="formcheck" value="true">
+  <div class="col-submit">
+    <button type="submit" class="submitbtn">Submit Form</button>
+  </div>
+  
+  </form>
+  </div>
+<script type="text/javascript">
+var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+elems.forEach(function(html) {
+  var switchery = new Switchery(html);
+});
+
+
+for ( i=0; i<10; i++ ){
+  if (String(i) == {{.AdultNum}}){
+    document.getElementById("adult_num").selectedIndex=i;
+  }
+  if (String(i) == {{.ChildNum}}){
+    document.getElementById("child_num").selectedIndex=i;
+  }
+}
+
+</script>
+</body>
+</html>
